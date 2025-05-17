@@ -107,6 +107,10 @@ jobs:
           git diff --compact-summary --exit-code || \
             (echo; echo "🛑 Unexpected difference. Run 'task docs' command and commit."; git diff --exit-code)
 
+      - name: 🔨 Setup tools
+        run: |
+          task gh:install:actionlint
+
       - name: ✔️ Run linters
         run: task lint
 
